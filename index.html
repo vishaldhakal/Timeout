@@ -278,13 +278,11 @@
         var millisecBeforeRedirect = 20000;
         function timeOutClear() {
             window.clearTimeout(timer);
-            video.pause();
             adimg.classList.add("d-none");
         }
         window.addEventListener('load', () => {
             timer = window.setTimeout(function () {
                 adimg.classList.remove("d-none");
-                video.play();
             }, millisecBeforeRedirect);
         })
         window.addEventListener('scroll', () => {
@@ -297,14 +295,12 @@
             timeOutClear();
             timer = window.setTimeout(function () {
                 adimg.classList.remove("d-none");
-                video.play();
             }, millisecBeforeRedirect);
         })
         closeadbtn.addEventListener('click', () => {
             timeOutClear();
             timer = window.setTimeout(function () {
                 adimg.classList.remove("d-none");
-                video.play();
             }, millisecBeforeRedirect);
         })
     </script>
