@@ -1,7 +1,7 @@
 "use strict";
 
 // CODELAB: Update cache names any time any of the cached files change.
-const CACHE_NAME = "static-cache-v6";
+const CACHE_NAME = "static-cache-v8";
 
 const FILES_TO_CACHE = [
   "./index.html",
