@@ -1573,9 +1573,10 @@
 }
 .contactus2 {
   position: fixed;
-  bottom: 60px;
-  left: 20px;
-  right: 20px;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999999;
 }
 .contactus2 button {
   background-color: #0a473f !important;

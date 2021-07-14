@@ -1,14 +1,13 @@
-'use strict';
+"use strict";
 
 let deferredInstallPrompt = null;
-const installButton = document.getElementById('inst');
-installButton.addEventListener('click', installPWA);
+const installButton = document.getElementById("inst");
+installButton.addEventListener("click", installPWA);
 
 console.log("Install Start");
 
 // CODELAB: Add event listener for beforeinstallprompt event
-window.addEventListener('beforeinstallprompt', saveBeforeInstallPromptEvent);
-
+window.addEventListener("beforeinstallprompt", saveBeforeInstallPromptEvent);
 
 /**
  * Event handler for beforeinstallprompt event.
@@ -17,10 +16,9 @@ window.addEventListener('beforeinstallprompt', saveBeforeInstallPromptEvent);
  * @param {Event} evt
  */
 function saveBeforeInstallPromptEvent(evt) {
-    deferredInstallPrompt = evt;
-    installButton.classList.remove('hidden');
+  deferredInstallPrompt = evt;
+  installButton.classList.remove("hidden");
 }
-
 
 /**
  * Event handler for butInstall - Does the PWA installation.
@@ -28,25 +26,23 @@ function saveBeforeInstallPromptEvent(evt) {
  * @param {Event} evt
  */
 function installPWA(evt) {
-    deferredInstallPrompt.prompt();
-    // Hide the install button, it can't be called twice.
-    evt.target.setAttribute('hidden', true);
+  deferredInstallPrompt.prompt();
+  // Hide the install button, it can't be called twice.
+  evt.target.setAttribute("hidden", true);
 
   // CODELAB: Log user response to prompt.
-  deferredInstallPrompt.userChoice
-    .then((choice) => {
-      if (choice.outcome === 'accepted') {
-        console.log('User accepted the A2HS prompt', choice);
-      } else {
-        console.log('User dismissed the A2HS prompt', choice);
-      }
-      deferredInstallPrompt = null;
-    });
-
+  deferredInstallPrompt.userChoice.then((choice) => {
+    if (choice.outcome === "accepted") {
+      console.log("User accepted the A2HS prompt", choice);
+    } else {
+      console.log("User dismissed the A2HS prompt", choice);
+    }
+    deferredInstallPrompt = null;
+  });
 }
 
 // CODELAB: Add event listener for appinstalled event
-window.addEventListener('appinstalled', logAppInstalled);
+window.addEventListener("appinstalled", logAppInstalled);
 
 /**
  * Event handler for appinstalled event.
@@ -56,6 +52,5 @@ window.addEventListener('appinstalled', logAppInstalled);
  */
 function logAppInstalled(evt) {
   // CODELAB: Add code to log the event
-  console.log('Weather App was installed.', evt);
-
+  console.log("Weather App was installed.", evt);
 }
